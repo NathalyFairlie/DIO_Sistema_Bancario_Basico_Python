@@ -1,32 +1,48 @@
-# DIO Sistema Bancário Simples
+ Sistema Bancário com Programação Orientada a Objetos
 
-Bem-vindo ao **Sistema Bancário Simples**, uma aplicação que permite realizar operações bancárias básicas como depósitos, saques e consultas de extrato. Este projeto é ideal para quem deseja entender a lógica por trás de um sistema bancário simples e as operações que podem ser realizadas.
-
-## Funcionalidades
-
--  💰**Depósito**: Adicione valores à sua conta.
--  💸**Saque**: Retire valores, respeitando limites e regras.
--  📋**Extrato**: Consulte o histórico de movimentações.
--  👁️**Regras do Banco**: Entenda as regras que regem as operações.
--  🚪**Logout**: Saia do sistema de forma segura.
-
-## Como Usar
-
-1. **Inicialize o sistema**: Execute o código em um ambiente Python.
-2. **Escolha uma operação**: Use as letras indicadas para navegar pelo menu.
-3. **Siga as instruções**: Insira os valores conforme solicitado.
-4. **Consulte o extrato**: Verifique suas movimentações a qualquer momento.
-5. **Saia do sistema**: Utilize a opção de logout quando terminar.
-
-## Regras do Banco
-
-- O valor mínimo para depósito é R$ 1,00.
-- O limite para saques é R$ 500,00 por operação.
-- O número máximo de saques por dia é 3.
-
-## Exemplo de Uso
-
-Ao executar o sistema, o usuário verá o menu principal e poderá escolher as operações desejadas, como realizar um depósito ou saque. O sistema validará as operações e exibirá mensagens apropriadas.
+![Versão](https://img.shields.io/badge/versão-2.0-blue)
+![Python](https://img.shields.io/badge/Python-3.x-brightgreen)
 
 
+Bem-vindo à versão 3.0 do Sistema Bancário! Este projeto foi refatorado para utilizar os princípios da **Programação Orientada a Objetos (POO)**, resultando em um código mais robusto, organizado e escalável. A aplicação simula as operações de um banco através de uma interface de linha de comando, gerenciando clientes e diferentes tipos de contas.
 
+---
+
+## ✨ Funcionalidades Principais
+
+Este sistema vai além das operações básicas, oferecendo uma estrutura mais completa e realista:
+
+*   **👤 Gestão de Clientes (Pessoa Física):**
+    *   Cadastro de novos usuários (clientes) com nome, data de nascimento, CPF e endereço. O CPF é usado como identificador único.
+
+*   **🏦 Criação de Contas Pessoais e Empresariais:**
+    *   Um único cliente (Pessoa Física) pode abrir múltiplos tipos de conta.
+    *   **Conta Pessoal (PF):** Uma conta corrente padrão para pessoas físicas.
+    *   **Conta Empresarial (PJ):** Uma conta vinculada a um cliente PF responsável, contendo dados da empresa (CNPJ e Razão Social).
+
+*   **⚙️ Regras de Negócio Personalizáveis:**
+    *   Ao criar uma nova conta (PF ou PJ), o usuário pode definir o **limite de valor por saque** e a **quantidade de saques diários**.
+    *   O sistema sugere valores padrão, que podem ser aceitos ou alterados.
+
+*   **💸 Transações Bancárias:**
+    *   **Depósito:** Adiciona valores a uma conta específica.
+    *   **Saque:** Retira valores, respeitando o saldo, o limite por saque e a quantidade diária de saques da conta.
+
+*   **🧾 Consultas Detalhadas:**
+    *   **Extrato:** Exibe o histórico completo de transações (depósitos e saques) de uma conta selecionada, com cabeçalho formatado e saldo atual.
+    *   **Listar Contas:** Permite visualizar todas as contas cadastradas, com a opção de filtrar por tipo (PF, PJ ou Todas).
+    *   **Consultar Regras da Conta:** Mostra os limites personalizados (valor e quantidade de saques) de uma conta específica.
+
+---
+
+## 🚀 Tecnologias e Conceitos Utilizados
+
+*   **Python 3:** Linguagem principal do projeto.
+*   **Programação Orientada a Objetos (POO):**
+    *   **Abstração:** Classes como `Conta` e `Transacao` definem contratos para outras classes mais específicas.
+    *   **Encapsulamento:** Atributos importantes (como `_saldo`) são protegidos para evitar acesso direto.
+    *   **Herança:** `ContaCorrente` herda de `Conta`, e `ContaJuridica` herda de `ContaCorrente`, reaproveitando e especializando o comportamento.
+    *   **Polimorfismo:** Métodos como `__str__` e `sacar` se comportam de maneira diferente dependendo do tipo de conta.
+*   **Módulos Nativos:**
+    *   `textwrap`: Para formatação e alinhamento profissional dos textos exibidos no terminal.
+    *   `datetime`: Para registrar a data e hora exatas de cada transação.
